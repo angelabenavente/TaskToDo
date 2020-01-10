@@ -1,35 +1,33 @@
 import React from 'react';
 import '../styles/App.css';
-import { fetchTasks } from '../services/Api';
-import AllTasks from './AllTasks';
+import { getDataFromApi } from '../services/Api';
+import List from './List';
 //import tas from './data/data.json';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      allTasks: [],
-
+      tasks: [],
     }
-
   }
 
   componentDidMount() {
-    fetchTasks() 
+    getDataFromApi() 
         .then(data => {
           this.setState({
-            allTasks: data.results,
+            tasks: data.results,
           });
-          console.log(this.state.allTasks);
         });
       }
 
 
 
   render() {
+    console.log(this.state.tasks);
     return (
       <div className="App">
-        <AllTasks allTasks={this.state.allTasks} />
+        <List tasks={this.state.tasks} />
       </div>
     );
   }

@@ -1,4 +1,5 @@
 import React from 'react';
+import Task from './Task';
 
 
 const AllTasks = props => {
@@ -10,11 +11,13 @@ const AllTasks = props => {
   return (
     <div>
       <ul>
-      {props.allTasks
+      {props.tasks
         .map((task,index) =>  <li className="task-wrapper" key={task.name}>
-         {task.name}      </li>
+         <Task
+         taskName={task.name}
+         taskDescription={task.description}/>
+         </li>
       )}
-
       </ul>
     </div>
   );
