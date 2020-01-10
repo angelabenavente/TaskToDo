@@ -2,6 +2,9 @@ import React from 'react';
 import '../styles/App.css';
 import { getDataFromApi } from '../services/Api';
 import List from './List';
+import Detail from './Detail';
+import { Router, Route, Switch } from 'react-router-dom';
+
 //import tas from './data/data.json';
 
 class App extends React.Component {
@@ -9,7 +12,9 @@ class App extends React.Component {
     super(props);
     this.state = {
       tasks: [],
+      id: ''
     }
+    this.submitHandler = this.submitHandler.bind(this);
   }
 
   componentDidMount() {
@@ -22,12 +27,25 @@ class App extends React.Component {
       }
 
 
+    submitHandler(taskID) {
+      this.setState({
+        id: taskID,
+      });
+      console.log(this.state.id)
+    }
 
   render() {
     console.log(this.state.tasks);
     return (
       <div className="App">
-        <List tasks={this.state.tasks} />
+        <Switch>
+          <Route path="/" exact>
+            <List submitHandler={this.submitHandler} tasks={this.state.tasks}/>
+          </Route>
+          <Route>
+            <Detail path="/detail"/>
+          </Route>
+        </Switch>
       </div>
     );
   }
