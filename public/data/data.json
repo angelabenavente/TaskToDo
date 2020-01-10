@@ -1,0 +1,19 @@
+{
+  "results": [
+    {
+      "name": "Sacar al perro",
+      "description": "Recoger 💩",
+      "id": "1"
+    },
+    {
+      "name": "Descansar",
+      "description": "Antes de programar. Los muertos no descansan.",
+      "id": "2"
+    },
+    {
+      "name": "Debugger",
+      "description": "Y limpiar código, porque somos personas limpias y ordenadas",
+      "id": "3"
+    }
+  ]
+}
