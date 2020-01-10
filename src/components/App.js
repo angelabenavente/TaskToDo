@@ -14,7 +14,7 @@ class App extends React.Component {
       tasks: [],
       id: ''
     }
-    this.submitHandler = this.submitHandler.bind(this);
+    this.handleTaskIdStatus = this.handleTaskIdStatus.bind(this);
   }
 
   componentDidMount() {
@@ -27,7 +27,7 @@ class App extends React.Component {
       }
 
 
-    submitHandler(taskID) {
+    handleTaskIdStatus(taskID) {
       this.setState({
         id: taskID,
       });
@@ -40,7 +40,7 @@ class App extends React.Component {
       <div className="App">
         <Switch>
           <Route path="/" exact>
-            <List submitHandler={this.submitHandler} tasks={this.state.tasks}/>
+            <List handleTaskIdStatus={this.handleTaskIdStatus} tasks={this.state.tasks}/>
           </Route>
           <Route>
             <Detail path="/detail"/>

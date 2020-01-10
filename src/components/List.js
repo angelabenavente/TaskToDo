@@ -12,7 +12,7 @@ const AllTasks = props => {
         .map((task) =>  <li className="task-wrapper" key={task.name}>
          <Task
          task={task}
-         submitHandler={props.submitHandler}
+         handleTaskIdStatus={props.handleTaskIdStatus}
          //taskDescription={task.description}
          />
          </li>
